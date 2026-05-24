@@ -1,0 +1,22 @@
+table_name,field_name,data_type,identity,len,dec,index,constraint
+mas_fintech,fin_id,int,yes,,,,
+mas_fintech,fin_name,varchar, ,50,,yes,
+mas_fintech,fin_short_name,varchar, ,10,,,
+mas_category,cat_id,int,yes,,,,
+mas_category,cat_name,varchar, ,50,,yes,
+mas_category,cat_type,varchar, ,2,,,
+mas_investments,inv_id,int,yes,,,,
+mas_investments,cat_id,int,,,,,FOREIGN KEY (cat_id) REFERENCES mas_category(cat_id)
+mas_investments,inv_name,varchar, ,50,,yes,
+mas_investments,inv_short_name,varchar, ,10,,,
+mas_family_members,fam_id,int,yes,,,,
+mas_family_members,fam_name,varchar, ,50,,yes,
+mas_family_members,fam_short_name,varchar, ,3,,,
+trn_investments,tin_id,int,yes,,,,
+trn_investments,tin_date,SMALLDATETIME,,,,,
+trn_investments,fin_id,int,,,,yes,FOREIGN KEY (fin_id) REFERENCES mas_fintech(fin_id)
+trn_investments,inv_id,int,,,,yes,FOREIGN KEY (inv_id) REFERENCES mas_investments(inv_id)
+trn_investments,fam_id,int,,,,yes,FOREIGN KEY (fam_id) REFERENCES mas_family_members(fam_id)
+trn_investments,tin_buy_sell,CHAR(1),,,,,
+trn_investments,tin_qty,int,,,,,
+trn_investments,tin_rate,DECIMAL,,12,6,,
