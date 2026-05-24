@@ -1,8 +1,6 @@
 # REACTJS_FULL_STACK_CODE_GEN_TOOL
 
 
-# React JS + Spring Boot Code Generator
-
 ## Streamlit App
 
 ### Setup
